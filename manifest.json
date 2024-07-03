@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "FUCK CHZZK GRID",
+  "description": "I HATE FUCKING CHZZK GRID(Remove chzzk grid)",
+  "version": "1.0",
+  "permissions": [
+    "activeTab", 
+    "webRequest", 
+    "webRequestBlocking", 
+    "*://live-streaming.navercdn.com/*", 
+    "*://livecloud.pstatic.net/"
+  ],
+  "host_permissions": ["*://chzzk.naver.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://chzzk.naver.com/*"],
+      "js": ["script.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["hookRequest.js"]
+  },
+  "action": {
+    "default_icon": "icon.png"
+  }
+}
