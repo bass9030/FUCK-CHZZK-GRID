@@ -1,5 +1,11 @@
 {
   "manifest_version": 3,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "FUCKGRID@bass9030.dev",
+      "strict_min_version": "58.0"
+    }
+  },
   "name": "FUCK CHZZK GRID",
   "description": "I HATE FUCKING CHZZK GRID(Remove chzzk grid)",
   "version": "1.0",
