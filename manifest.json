@@ -8,9 +8,9 @@
     "webRequest", 
     "webRequestBlocking", 
     "*://live-streaming.navercdn.com/*", 
-    "*://livecloud.pstatic.net/"
+    "*://livecloud.pstatic.net/*"
   ],
-  "host_permissions": ["*://chzzk.naver.com/*"],
+  "host_permissions": ["*://chzzk.naver.com/*", "*://live-streaming.navercdn.com/*", "*://livecloud.pstatic.net/*"],
   "content_scripts": [
     {
       "matches": ["*://chzzk.naver.com/*"],
