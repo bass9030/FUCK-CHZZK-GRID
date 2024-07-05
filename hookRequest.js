@@ -1,14 +1,12 @@
-let requestFilter = {
+const requestFilter = {
     urls: ["<all_urls>"],
     types: ["xmlhttprequest"]
 }
 
-let extraInfoSpec = ['blocking']
+const extraInfoSpec = ['blocking']
 
 let handler = function(details) {
-    let url = details.url;
-    console.log(details)
-    
+    let url = details.url;    
     if(url.includes('chunklist_480p.m3u8'))
         return {redirectUrl: url.replace('chunklist_480p.m3u8', 'chunklist_1080p.m3u8')}
 };
