@@ -1,32 +1,32 @@
 {
-  "manifest_version": 3,
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "FUCKGRID@bass9030.dev",
-      "strict_min_version": "58.0"
+    "manifest_version": 3,
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "FUCKGRID@bass9030.dev",
+            "strict_min_version": "58.0"
+        }
+    },
+    "name": "FUCK CHZZK GRID",
+    "description": "I HATE FUCKING CHZZK GRID(Remove chzzk grid)",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "webRequest",
+        "webRequestBlocking",
+        "scripting",
+        "*://live-streaming.navercdn.com/*",
+        "*://livecloud.pstatic.net/*"
+    ],
+    "host_permissions": [
+        "*://chzzk.naver.com/*",
+        "*://live-streaming.navercdn.com/*",
+        "*://livecloud.pstatic.net/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "scripts": ["background.js"]
+    },
+    "action": {
+        "default_icon": "icon.png"
     }
-  },
-  "name": "FUCK CHZZK GRID",
-  "description": "I HATE FUCKING CHZZK GRID(Remove chzzk grid)",
-  "version": "1.0",
-  "permissions": [
-    "activeTab", 
-    "webRequest", 
-    "webRequestBlocking", 
-    "*://live-streaming.navercdn.com/*", 
-    "*://livecloud.pstatic.net/*"
-  ],
-  "host_permissions": ["*://chzzk.naver.com/*", "*://live-streaming.navercdn.com/*", "*://livecloud.pstatic.net/*"],
-  "content_scripts": [
-    {
-      "matches": ["*://chzzk.naver.com/*"],
-      "js": ["script.js"]
-    }
-  ],
-  "background": {
-    "scripts": ["hookRequest.js"]
-  },
-  "action": {
-    "default_icon": "icon.png"
-  }
 }
