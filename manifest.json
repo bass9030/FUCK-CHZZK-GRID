@@ -13,9 +13,7 @@
         "activeTab",
         "webRequest",
         "webRequestBlocking",
-        "scripting",
-        "*://live-streaming.navercdn.com/*",
-        "*://livecloud.pstatic.net/*"
+        "scripting"
     ],
     "host_permissions": [
         "*://chzzk.naver.com/*",
