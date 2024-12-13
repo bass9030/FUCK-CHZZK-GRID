@@ -19,7 +19,7 @@
     ],
     "host_permissions": [
         "*://chzzk.naver.com/*",
-        "*://live-streaming.navercdn.com/*",
+        "*://*.navercdn.com/*",
         "*://livecloud.pstatic.net/*"
     ],
     "background": {
