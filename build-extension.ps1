@@ -1,4 +1,4 @@
 echo "Remove existing file"
 del .\FUCKGRID.zip
 echo "Compressing file"
-Compress-Archive -Path .\* -DestinationPath .\FUCKGRID.zip
+Compress-Archive -Path .\*.* -CompressionLevel Optimal -DestinationPath FUCKGRID.zip
