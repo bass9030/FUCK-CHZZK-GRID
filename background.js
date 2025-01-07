@@ -1,8 +1,8 @@
 // ===== script injection =====
 browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     let urlRegex = /(http|https):\/\/chzzk.naver.com\/live\/[A-z0-9]+/g;
-    console.log(changeInfo.url);
     if (!!!changeInfo.url) return;
+    console.log(changeInfo.url);
     if (changeInfo.url.match(urlRegex)) {
         console.log("[FUCK CHZZK GRID] url changed!");
         await injectScript(tabId);
@@ -10,7 +10,8 @@ browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 });
 
 async function injectScript(tabId) {
-    await browser.scripting.executeScript({
+    console.log("[FUCK CHZZK GRID] try to inject script");
+    browser.scripting.executeScript({
         target: { tabId: tabId },
         files: ["inject.js"],
         world: "MAIN",
