@@ -2,7 +2,8 @@
 
 ![logo](https://github.com/bass9030/FUCK-CHZZK-GRID/blob/master/icon.png?raw=true)
 
-Firefox에서 치지직의 그리드 프로그램 요구를 우회합니다.
+Firefox에서 치지직의 그리드 프로그램 요구를 우회합니다.<br/>
+[설치하러가기](https://addons.mozilla.org/ko/firefox/addon/fuck-chzzk-grid/)
 
 ## 사용방법
 
