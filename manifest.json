@@ -9,20 +9,10 @@
     "name": "FUCK CHZZK GRID",
     "description": "I HATE FUCKING CHZZK GRID(Remove chzzk grid)",
     "version": "1.2",
-    "permissions": [
-        "activeTab",
-        "webRequest",
-        "webRequestBlocking",
-        "scripting"
-    ],
-    "host_permissions": [
-        "*://chzzk.naver.com/*",
-        "*://*.navercdn.com/*",
-        "*://livecloud.pstatic.net/*"
-    ],
+    "permissions": ["tabs", "activeTab", "webNavigation", "scripting"],
+    "host_permissions": ["*://chzzk.naver.com/*"],
     "background": {
-        "service_worker": "background.js",
-        "scripts": ["background.js"]
+        "service_worker": "background.js"
     },
     "action": {
         "default_icon": "icon.png"

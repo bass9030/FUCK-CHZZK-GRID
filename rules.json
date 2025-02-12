@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "redirect",
+            "redirect": {
+                "regexSubstitution": "\\1chunklist_1080p.m3u8"
+            }
+        },
+        "condition": {
+            "regexFilter": "chunklist_480p.m3u8",
+            "resourceTypes": ["xmlhttprequest"]
+        }
+    }
+]
