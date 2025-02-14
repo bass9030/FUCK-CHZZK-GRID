@@ -13,19 +13,16 @@ const observeConfig = {
     // Intercept fetch requests
     const origFetch = window.fetch;
     window.fetch = function (...args) {
-        if (args[0].includes("chunklist_480p.m3u8"))
-            args[0] = args[0].replace(
-                "chunklist_480p.m3u8",
-                "chunklist_1080p.m3u8"
-            );
+        if (args[0].match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g))
+            args[0] = args[0].replace("480p", "1080p");
         return origFetch.apply(this, args);
     };
 
     // Intercept XHR requests
     const origXHR = window.XMLHttpRequest.prototype.open;
     window.XMLHttpRequest.prototype.open = function (method, url, ...args) {
-        if (url.includes("chunklist_480p.m3u8"))
-            url = url.replace("chunklist_480p.m3u8", "chunklist_1080p.m3u8");
+        if (url.match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g))
+            url = url.replace("480p", "1080p");
         return origXHR.apply(this, [method, url, ...args]);
     };
 })();
