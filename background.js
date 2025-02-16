@@ -35,6 +35,10 @@ let handler = function (details) {
                 "chunklist_1080p.m3u8"
             ),
         };
+    else if (url.match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g))
+        return {
+            redirectUrl: url.replace("480p", "1080p"),
+        };
 };
 
 browser.webRequest.onBeforeRequest.addListener(

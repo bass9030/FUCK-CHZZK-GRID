@@ -1,4 +1,4 @@
-let FCG_attempt = 0;
+var FCG_attempt = 0;
 
 console.log("[FUCK CHZZK GRID] script inject!");
 
