@@ -13,15 +13,27 @@ const observeConfig = {
     // Intercept fetch requests
     const origFetch = window.fetch;
     window.fetch = function (...args) {
-        if (args[0].match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g))
+        if (args[0].match(/naverliveconnector/g)) console.log(args[0]);
+        if (args[0].match(/http:\/\/127\.0\.0\.1\:[0-9]{5}\/auth/g))
+            args[0] = "";
+        if (
+            args[0].match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g) ||
+            args[0].match(/chunklist_480p.m3u8/g)
+        )
             args[0] = args[0].replace("480p", "1080p");
+
         return origFetch.apply(this, args);
     };
 
     // Intercept XHR requests
     const origXHR = window.XMLHttpRequest.prototype.open;
     window.XMLHttpRequest.prototype.open = function (method, url, ...args) {
-        if (url.match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g))
+        if (url.match(/naverliveconnector/g)) console.log(url);
+        if (url.match(/http:\/\/127\.0\.0\.1\:[0-9]{5}\/auth/g)) url = "";
+        if (
+            url.match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g) ||
+            url.match(/chunklist_480p.m3u8/g)
+        )
             url = url.replace("480p", "1080p");
         return origXHR.apply(this, [method, url, ...args]);
     };
