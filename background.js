@@ -24,21 +24,23 @@ const requestFilter = {
     types: ["xmlhttprequest"],
 };
 
+const URL_MATCH_PATTERN = [
+    /chunklist_480p.m3u8/g,
+    /[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g,
+    /[0-9a-z]+\/480p\/chunklist.m3u8/g,
+];
+
 const extraInfoSpec = ["blocking"];
 
 let handler = function (details) {
     let url = details.url;
-    if (url.includes("chunklist_480p.m3u8"))
-        return {
-            redirectUrl: url.replace(
-                "chunklist_480p.m3u8",
-                "chunklist_1080p.m3u8"
-            ),
-        };
-    else if (url.match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g))
-        return {
-            redirectUrl: url.replace("480p", "1080p"),
-        };
+    for (let i = 0; i < URL_MATCH_PATTERN.length; i++) {
+        if (url.match(URL_MATCH_PATTERN[i])) {
+            return {
+                redirectUrl: url.replace("480p", "1080p"),
+            };
+        }
+    }
 };
 
 browser.webRequest.onBeforeRequest.addListener(
