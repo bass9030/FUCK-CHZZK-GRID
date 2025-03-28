@@ -26,9 +26,10 @@ const requestFilter = {
 
 const URL_MATCH_PATTERN = [
     /chunklist_480p.m3u8/g,
-    /[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g,
-    /[A-z0-9]+\/480p\/hdntl=.+\/.+chunklist.m3u8/g,
-    /[0-9A-z]+\/480p\/chunklist.m3u8/g,
+    /\/480p\/hdntl=.+\/chunklist\.m3u8/g,
+    /\/480p\/hdntl=.+\/.+chunklist\.m3u8/g,
+    /\/480p\/chunklist\.m3u8/g,
+    /\/480p\/[A-z0-9]+_chunklist\.m3u8/g,
 ];
 
 const extraInfoSpec = ["blocking"];
@@ -38,7 +39,7 @@ let handler = function (details) {
     for (let i = 0; i < URL_MATCH_PATTERN.length; i++) {
         if (url.match(URL_MATCH_PATTERN[i])) {
             return {
-                redirectUrl: url.replace("480p", "1080p"),
+                redirectUrl: url.replace(/480p/g, "1080p"),
             };
         }
     }
