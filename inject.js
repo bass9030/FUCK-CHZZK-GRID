@@ -1,4 +1,4 @@
-var FCG_attempt = 0;
+let FCG_attempt = 0;
 
 console.log("[FUCK CHZZK GRID] script inject!");
 const qualityObserver = new MutationObserver(callback);
@@ -6,6 +6,14 @@ const observeConfig = {
     childList: true,
     subtree: true,
 };
+
+const URL_MATCH_PATTERN = [
+    /chunklist_480p.m3u8/g,
+    /\/480p\/hdntl=.+\/chunklist\.m3u8/g,
+    /\/480p\/hdntl=.+\/.+chunklist\.m3u8/g,
+    /\/480p\/chunklist\.m3u8/g,
+    /\/480p\/[A-z0-9]+_chunklist\.m3u8/g,
+];
 
 (function () {
     "use strict";
@@ -16,11 +24,12 @@ const observeConfig = {
         if (args[0].match(/naverliveconnector/g)) console.log(args[0]);
         if (args[0].match(/http:\/\/127\.0\.0\.1\:[0-9]{5}\/auth/g))
             args[0] = "";
-        if (
-            args[0].match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g) ||
-            args[0].match(/chunklist_480p.m3u8/g)
-        )
-            args[0] = args[0].replace("480p", "1080p");
+        for (let i = 0; i < URL_MATCH_PATTERN.length; i++) {
+            if (args[0].match(URL_MATCH_PATTERN[i])) {
+                args[0] = args[0].replace("480p", "1080p");
+                break;
+            }
+        }
 
         return origFetch.apply(this, args);
     };
@@ -30,11 +39,11 @@ const observeConfig = {
     window.XMLHttpRequest.prototype.open = function (method, url, ...args) {
         if (url.match(/naverliveconnector/g)) console.log(url);
         if (url.match(/http:\/\/127\.0\.0\.1\:[0-9]{5}\/auth/g)) url = "";
-        if (
-            url.match(/[A-z0-9]+\/480p\/hdntl=.+\/chunklist.m3u8/g) ||
-            url.match(/chunklist_480p.m3u8/g)
-        )
-            url = url.replace("480p", "1080p");
+
+        for (let i = 0; i < URL_MATCH_PATTERN.length; i++) {
+            if (url.match(URL_MATCH_PATTERN[i]))
+                url = url.replace("480p", "1080p");
+        }
         return origXHR.apply(this, [method, url, ...args]);
     };
 })();
