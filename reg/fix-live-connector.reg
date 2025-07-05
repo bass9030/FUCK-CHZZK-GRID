@@ -1,0 +1,3 @@
+Windows Registry Editor Version 5.00
+; 네이버 라이브 커넥터 프로토콜 차단
+[-HKEY_CLASSES_ROOT\naverliveconnector]
