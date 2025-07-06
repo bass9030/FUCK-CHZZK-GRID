@@ -26,3 +26,8 @@ Firefox에서 치지직의 그리드 프로그램 요구를 우회합니다.<br/
 
 F12 -> 네트워크 탭으로 가서 `chunklist_1080p.m3u8` 혹은 `/1080p/~~~chunklist.m3u8`로 이루어진 요청이 계속 표시되는지 확인해보세요.<br/>
 만약 `chunklist_1080p.m3u8` 혹은 `/1080p/~~~chunklist.m3u8`로 표시되지 않는다면 이슈를 남겨주세요. 최대한 빠르게 해결해드리겠습니다.
+
+## Special Thanks
+
+-   PASSWATCH ([치지직 올인원 스크립트](https://greasyfork.org/ko/scripts/534791-chzzk-%EC%98%AC%EC%9D%B8%EC%9B%90-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-auto-quality-ad-popup-removal-unmute) 제작)
+-   루션 (화질고정 스크립트 수정본 제공)
