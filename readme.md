@@ -16,7 +16,7 @@ Firefox에서 치지직의 그리드 프로그램 요구를 우회합니다.<br/
 
 -   "https://chzzk.naver.com 사이트가 NAVER Live Streaming 애프리케이션으로 naverliveconnector 링크를 열도록 허용하시겠습니까?" 창이 계속해서 표시됩니다.
 
-네이버 라이브 스트리밍 커넥터(NLiveConnector)를 제거한 뒤 사용해주세요. 만약 네이버 라이브 스트리밍 커넥터를 지워도 해당 창이 계속하여 발생한다면 [fix-live-connector.reg](https://github.com/bass9030/FUCK-CHZZK-GRID/blob/master/reg/fix-live-connector.reg) 파일을 다운로드하여 실행해주세요.
+네이버 라이브 스트리밍 커넥터(NLiveConnector)를 제거한 뒤 사용해주세요. 만약 네이버 라이브 스트리밍 커넥터를 지워도 해당 창이 계속하여 발생한다면 [`fix-live-connector.reg`](https://raw.githubusercontent.com/bass9030/FUCK-CHZZK-GRID/refs/heads/master/reg/fix-live-connector.reg) 파일을 다운로드하여 실행해주세요.
 
 -   화질설정에 1080p with FUCK GRID™이 표시되지 않습니다
 
