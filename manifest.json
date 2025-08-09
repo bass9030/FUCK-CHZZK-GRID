@@ -8,7 +8,7 @@
     },
     "name": "FUCK CHZZK GRID",
     "description": "I HATE FUCKING CHZZK GRID(Bypass CHZZK grid)",
-    "version": "1.52",
+    "version": "2.0.0",
     "permissions": [
         "activeTab",
         "webRequest",
@@ -18,7 +18,8 @@
     "host_permissions": [
         "*://chzzk.naver.com/*",
         "*://*.navercdn.com/*",
-        "*://livecloud.pstatic.net/*"
+        "*://livecloud.pstatic.net/*",
+        "*://livecloud.akamaized.net/*"
     ],
     "background": {
         "service_worker": "background.js",
