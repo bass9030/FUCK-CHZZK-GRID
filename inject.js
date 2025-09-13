@@ -15,7 +15,7 @@
     function changeText() {
         // 선택 리스트에서의 텍스트 변경
         let qualitys = document.querySelectorAll(
-            "div.pzp-setting-quality-pane > div:nth-child(2) > ul > li"
+            "ul.pzp-setting-quality-pane__list-container > li"
         );
         let qualityElement;
         // 480p 텍스트 찾기
@@ -72,16 +72,14 @@
         prevTry = new Date().getTime();
         let qualityText = localStorage.getItem("quality-text");
         let qualityLists = document.querySelectorAll(
-            `div.pzp-setting-quality-pane__list-container > ul > li`
+            "ul.pzp-setting-quality-pane__list-container > li"
         );
         if (!!!qualityLists?.length) return;
-
         if (qualityText == null) qualityText = "360p"; // 미선택시 자동 360p 선택
 
         let currentQuality = document.querySelector(
-            "div.pzp-setting-quality-pane__list-container > ul > li.pzp-ui-setting-pane-item--checked"
+            "ul.pzp-setting-quality-pane__list-container > li.pzp-ui-setting-pane-item--checked"
         );
-
         if (currentQuality.innerText.trim() == qualityText) return;
         let videoElement = document.querySelector(
             "video.webplayer-internal-video"
@@ -105,7 +103,7 @@
 
     function saveQuality() {
         let qualityList = document.querySelector(
-            "div.pzp-setting-quality-pane__list-container > ul > li.pzp-ui-setting-pane-item--checked"
+            "ul.pzp-setting-quality-pane__list-container > li.pzp-ui-setting-pane-item--checked"
         );
 
         localStorage.setItem("quality-text", qualityList.innerText.trim());
@@ -129,12 +127,12 @@
         restoreQuality();
         if (
             !!document.querySelector(
-                "div.pzp-setting-quality-pane__list-container"
+                "ul.pzp-setting-quality-pane__list-container"
             )
         ) {
             if (qualityListElement == null) {
                 qualityListElement = document.querySelector(
-                    "div.pzp-setting-quality-pane__list-container"
+                    "ul.pzp-setting-quality-pane__list-container"
                 );
 
                 qualityListElement.addEventListener("click", saveQuality);
