@@ -1,6 +1,12 @@
 // ===== script injection =====
-browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
+const extenstion = typeof browser === "undefined" ? chrome : browser;
+
+console.log(extenstion);
+
+extenstion.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     let urlRegex = /(http|https):\/\/chzzk.naver.com\/live\/[A-z0-9]+/g;
+    console.log(changeInfo.url);
+
     if (!!!changeInfo.url) return;
     console.log(changeInfo.url);
     if (changeInfo.url.match(urlRegex)) {
@@ -11,7 +17,7 @@ browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
 async function injectScript(tabId) {
     console.log("[FUCK CHZZK GRID] try to inject script");
-    browser.scripting.executeScript({
+    extenstion.scripting.executeScript({
         target: { tabId: tabId },
         files: ["inject.js"],
         world: "MAIN",
@@ -19,34 +25,5 @@ async function injectScript(tabId) {
 }
 
 // ===== bypass grid system =====
-const requestFilter = {
-    urls: ["<all_urls>"],
-    types: ["xmlhttprequest"],
-};
-
-const URL_MATCH_PATTERN = [
-    /chunklist_480p.m3u8/g,
-    /\/480p\/hdntl=.+\/chunklist\.m3u8/g,
-    /\/480p\/hdntl=.+\/.+chunklist\.m3u8/g,
-    /\/480p\/chunklist\.m3u8/g,
-    /\/480p\/[A-z0-9]+_chunklist\.m3u8/g,
-];
-
-const extraInfoSpec = ["blocking"];
-
-let handler = function (details) {
-    let url = details.url;
-    for (let i = 0; i < URL_MATCH_PATTERN.length; i++) {
-        if (url.match(URL_MATCH_PATTERN[i])) {
-            return {
-                redirectUrl: url.replace(/480p/g, "1080p"),
-            };
-        }
-    }
-};
-
-browser.webRequest.onBeforeRequest.addListener(
-    handler,
-    requestFilter,
-    extraInfoSpec
-);
+// declarativeNetRequest를 사용하여 480p를 1080p로 리다이렉트
+// rules.json에서 정의된 규칙이 자동으로 적용됩니다.
