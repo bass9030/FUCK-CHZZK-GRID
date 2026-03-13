@@ -1,9 +1,20 @@
 // ===== script injection =====
 const extenstion = typeof browser === "undefined" ? chrome : browser;
 
-console.log(extenstion);
-
 extenstion.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
+    if ((await extenstion.runtime.getPlatformInfo())["os"] != "win") {
+        console.log(
+            "[FUCK CHZZK GRID] F.C.G Detected platform is not windows. Bypass disabled",
+        );
+        browser.declarativeNetRequest.updateEnabledRulesets({
+            disableRulesetIds: ["ruleset_1"],
+        });
+        return;
+    } else {
+        browser.declarativeNetRequest.updateEnabledRulesets({
+            enableRulesetIds: ["ruleset_1"],
+        });
+    }
     let urlRegex = /(http|https):\/\/chzzk.naver.com\/live\/[A-z0-9]+/g;
     console.log(changeInfo.url);
 
