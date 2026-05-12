@@ -8,15 +8,13 @@
     },
     "name": "FUCK CHZZK GRID",
     "description": "I HATE FUCKING CHZZK GRID(Bypass CHZZK grid)",
-    "version": "2.2.2",
+    "version": "2.2.3",
     "permissions": ["activeTab", "scripting", "declarativeNetRequest"],
     "host_permissions": [
-        "*://chzzk.naver.com/*",
+        "*://chzzk.naver.com/live/*",
         "*://*.navercdn.com/*",
-        "*://livecloud.pstatic.net/*",
-        "*://livecloud.akamaized.net/*",
-        "*://slight-slit.akamaized.net/*",
-        "*://slight-slit.pstatic.net/*"
+        "*://*.pstatic.net/*",
+        "*://*.akamaized.net/*"
     ],
     "declarative_net_request": {
         "rule_resources": [
