@@ -26,11 +26,15 @@
                 break;
             }
         }
-        let video = document.querySelector(
-            "div[class^='live_information_details']",
-        );
+        // let video = document.querySelector("video.webplayer-internal-video");
+        LOG.log("qualitys", qualitys);
+        if (qualitys.length == 0) {
+            return;
+        }
 
-        if (!!video && !!qualityElement) {
+        // 화질 리스트 화질 안바꼈을때
+        if (!!qualityElement) {
+            LOG.log("Change list element");
             qualityElement.querySelector(
                 "li > div:nth-child(2) > span > div",
             ).innerHTML =
