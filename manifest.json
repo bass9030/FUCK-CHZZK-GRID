@@ -8,7 +8,7 @@
     },
     "name": "FUCK CHZZK GRID",
     "description": "I HATE FUCKING CHZZK GRID(Bypass CHZZK grid)",
-    "version": "2.2.3",
+    "version": "2.2.4",
     "permissions": ["activeTab", "scripting", "declarativeNetRequest"],
     "host_permissions": [
         "*://chzzk.naver.com/live/*",
